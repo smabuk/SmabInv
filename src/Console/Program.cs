@@ -1,29 +1,18 @@
-﻿// Create a ManagementObjectSearcher to query WMI
-ManagementObjectSearcher searcher;
+﻿Console.WriteLine($"SmabInv - Hardware Inventory");
 
-try {
-
-}
-catch (ManagementException e) {
-	Console.WriteLine("An error occurred while querying WMI: " + e.Message);
-	return 1;
-}
-
-searcher = new("SELECT * FROM Win32_OperatingSystem");
-foreach (ManagementObject os in searcher.Get().Cast<ManagementObject>()) {
-	// Display some properties of the operating system
-	Console.WriteLine($"Caption:         {os["Caption"]}");
-	Console.WriteLine($"Version:         {os["Version"]}");
-	Console.WriteLine($"Manufacturer:    {os["Manufacturer"]}");
-	Console.WriteLine($"OS Architecture: {os["OSArchitecture"]}");
+foreach (string table in Constants.Win32Tables) {
+	Dump.ToConsoleAsPlainText(table, ignoreBlankProperties: true, propertyWidth: 42);
 }
 
 
-searcher = new(@"root\wmi", "SELECT * FROM MSSmBios_RawSMBiosTables");
+Console.WriteLine();
+ManagementObject smbios = new 
+	ManagementObjectSearcher(@"root\wmi", "SELECT * FROM MSSmBios_RawSMBiosTables")
+	.Get()
+	.Cast<ManagementObject>()
+	.Single();
 
-foreach (ManagementObject smbios in searcher.Get()) {
-	Console.WriteLine($"SM Bios Version: {smbios["SmbiosMajorVersion"]}.{smbios["SmbiosMinorVersion"]}");
-	// Display some properties of the operating system
-}
+Console.WriteLine($"SMBIOS Version: {smbios["SmbiosMajorVersion"]}.{smbios["SmbiosMinorVersion"]}");
+
 
 return 0;
