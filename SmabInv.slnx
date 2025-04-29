@@ -8,7 +8,9 @@
     <File Path="docs/DSP0134_3.8.0.pdf" />
     <File Path="docs/smabinv1.vbs" />
   </Folder>
-  <Folder Name="/src/" />
+  <Folder Name="/src/">
+    <Project Path="src/Smab.SmBiosInfo/Smab.SmBiosInfo.csproj" Id="04a5468e-aef8-4bb9-b565-548f09ac4d55" />
+  </Folder>
   <Folder Name="/src/Console/">
     <Project Path="src/Console/SmabInv.csproj" />
   </Folder>

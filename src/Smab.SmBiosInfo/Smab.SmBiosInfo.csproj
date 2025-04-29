@@ -1,32 +1,47 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<OutputType>Exe</OutputType>
-		<TargetFramework>net10.0-windows</TargetFramework>
+		<TargetFramework>net9.0-windows</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<LangVersion>preview</LangVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Spectre.Console" Version="0.50.0" />
-		<PackageReference Include="Spectre.Console.Cli" Version="0.50.0" />
-		<PackageReference Include="Spectre.Console.Json" Version="0.50.0" />
-		<PackageReference Include="System.Management" Version="10.0.0-preview.3.25171.5" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\Smab.SmBiosInfo\Smab.SmBiosInfo.csproj" />
+		<PackageReference Include="System.Management" Version="9.*" />
 	</ItemGroup>
 
 	<PropertyGroup>
-		<Authors>Simon Brookes</Authors>
-		<Company>Simon Brookes</Company>
-		<Copyright>Copyright © Simon Brookes (smabuk)</Copyright>
-		<Description>Windows hardware SMBios inventory information</Description>
+		<PackageReleaseNotes>Initial</PackageReleaseNotes>
 		<VersionPrefix>1.0.0</VersionPrefix>
 		<VersionSuffix Condition=" '$(ComputerName)' != '' ">$(ComputerName)-$([System.DateTime]::get_Now().get_Year())$([System.DateTime]::get_Now().get_Month().ToString("D2"))$([System.DateTime]::get_Now().get_Day().ToString("D2"))-$([System.DateTime]::get_Now().get_Hour().ToString("D2"))$([System.DateTime]::get_Now().get_Minute().ToString("D2"))</VersionSuffix>
 		<VersionSuffix Condition=" '$(Name)' != '' And '$(ComputerName)' == '' ">$(Name)-$([System.DateTime]::get_Now().get_Year())$([System.DateTime]::get_Now().get_Month().ToString("D2"))$([System.DateTime]::get_Now().get_Day().ToString("D2"))-$([System.DateTime]::get_Now().get_Hour().ToString("D2"))$([System.DateTime]::get_Now().get_Minute().ToString("D2"))</VersionSuffix>
 		<VersionSuffix Condition=" '$(Name)' == '' And '$(ComputerName)' == '' ">$([System.DateTime]::get_Now().get_Year())$([System.DateTime]::get_Now().get_Month().ToString("D2"))$([System.DateTime]::get_Now().get_Day().ToString("D2"))-$([System.DateTime]::get_Now().get_Hour().ToString("D2"))$([System.DateTime]::get_Now().get_Minute().ToString("D2"))</VersionSuffix>
 	</PropertyGroup>
+
+
+	<PropertyGroup>
+		<PackageId>Smab.SmBiosInfo</PackageId>
+		<Title>Smab.SmBiosInfo</Title>
+		<Product>Smab.SmBiosInfo</Product>
+		<AssemblyName>Smab.SmBiosInfo</AssemblyName>
+		<RootNamespace>Smab.SmBiosInfo</RootNamespace>
+		<Authors>Simon Brookes (@smabuk)</Authors>
+		<Copyright>Simon Brookes (@smabuk)</Copyright>
+		<Company></Company>
+		<Description>Windows hardware SMBios inventory information</Description>
+		<Summary>Windows hardware SMBios inventory information</Summary>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageProjectUrl>https://github.com/smabuk/Smab.Helpers</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/smabuk/Smab.Helpers</RepositoryUrl>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>json, html, helpers</PackageTags>
+		<!--<PackageIconUrl>https://user-images.githubusercontent.com/782127/33497760-facf6550-d69c-11e7-94e4-b3856da259a9.png</PackageIconUrl>-->
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Include="..\..\README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace SmabInv.SmBios.Enums;
+﻿namespace Smab.SmBiosInfo.Enums;
 
 public enum NetworkConnectionStatus
 {
