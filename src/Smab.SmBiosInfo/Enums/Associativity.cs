@@ -1,5 +1,12 @@
 ﻿namespace Smab.SmBiosInfo.Enums;
 
+/// <summary>
+/// Represents the associativity of a cache or memory structure, indicating how data is mapped to cache lines or sets.
+/// </summary>
+/// <remarks>Associativity defines the relationship between memory addresses and cache lines or sets. For example,
+/// a "DirectMapped" cache maps each memory address to a single cache line, while "FullyAssociative" allows any memory
+/// address to map to any cache line. Set-associative configurations (e.g., "SetAssociative2Way") allow a memory address
+/// to map to a specific set of cache lines, with the number indicating the number of lines per set.</remarks>
 public enum Associativity
 {
 	Other               = 0x01,

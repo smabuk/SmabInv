@@ -1,5 +1,11 @@
 ﻿namespace Smab.SmBiosInfo.Enums;
 
+/// <summary>
+/// Represents the type of a hardware board in a system.
+/// </summary>
+/// <remarks>This enumeration defines various types of hardware boards that may be present in a system,  such as
+/// server blades, motherboards, or memory modules. Each value corresponds to a specific  board type, which can be used
+/// to identify or categorize hardware components.</remarks>
 public enum BoardType
 {
 	Unknown                = 0x01,

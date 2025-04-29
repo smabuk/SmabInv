@@ -1,7 +1,14 @@
-﻿using Smab.SmBiosInfo.Enums;
+﻿namespace Smab.SmBiosInfo.Structures;
 
-namespace Smab.SmBiosInfo.Structures;
-public record Type001(byte[] Data, List<string> Strings) : SmBiosTable(Data, [.. Strings])
+/// <summary>
+/// Represents the System Information (Type 1) structure of the SMBIOS (System Management BIOS) specification.
+/// </summary>
+/// <remarks>This record provides detailed information about the system, including manufacturer, product name,
+/// version,  serial number, UUID, wake-up type, SKU number, and family. It extends the <see cref="SmBiosTable"/> class 
+/// to parse and expose these fields from the SMBIOS data.</remarks>
+/// <param name="Data"></param>
+/// <param name="Strings"></param>
+public sealed record Type001(byte[] Data, List<string> Strings) : SmBiosTable(Data, [.. Strings])
 {
 	public Type001(SmBiosTable table) : this(table.Data, [.. table.Strings]) { }
 

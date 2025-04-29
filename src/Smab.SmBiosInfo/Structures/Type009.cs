@@ -1,5 +1,14 @@
 ﻿namespace Smab.SmBiosInfo.Structures;
-public record Type009(byte[] Data, List<string> Strings) : SmBiosTable(Data, [.. Strings])
+
+/// <summary>
+/// Represents the System Slots (Type 9) structure in the SMBIOS (System Management BIOS) specification.
+/// </summary>
+/// <remarks>This record provides information about the system's expansion slots, including their designation,
+/// type,  data bus width, current usage, and physical characteristics. It extends the <see cref="SmBiosTable">  base
+/// class to parse and expose these details.</remarks>
+/// <param name="Data"></param>
+/// <param name="Strings"></param>
+public sealed record Type009(byte[] Data, List<string> Strings) : SmBiosTable(Data, [.. Strings])
 {
 	public Type009(SmBiosTable table) : this(table.Data, [.. table.Strings]) { }
 

@@ -1,7 +1,14 @@
-﻿using Smab.SmBiosInfo.Enums;
+﻿namespace Smab.SmBiosInfo.Structures;
 
-namespace Smab.SmBiosInfo.Structures;
-public record Type003(byte[] Data, List<string> Strings) : SmBiosTable(Data, [.. Strings])
+/// <summary>
+/// Represents the System Enclosure or Chassis information as defined in the SMBIOS specification.
+/// </summary>
+/// <remarks>This record provides details about the system enclosure or chassis, including manufacturer, version,
+/// serial number, asset tag, chassis type, and various states such as bootup, power supply, and thermal state. It also
+/// includes optional information such as the height of the chassis and the number of power cords.</remarks>
+/// <param name="Data"></param>
+/// <param name="Strings"></param>
+public sealed record Type003(byte[] Data, List<string> Strings) : SmBiosTable(Data, [.. Strings])
 {
 	public Type003(SmBiosTable table) : this(table.Data, [.. table.Strings]) { }
 

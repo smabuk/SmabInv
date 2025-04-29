@@ -1,5 +1,10 @@
 ﻿namespace Smab.SmBiosInfo.Enums;
 
+/// <summary>
+/// Represents the type of processor upgrade or socket used for a CPU.
+/// </summary>
+/// <remarks>This enumeration provides a comprehensive list of processor upgrade types and socket configurations.
+/// It is commonly used to identify the physical interface or upgrade path for a processor in a system.</remarks>
 public enum ProcessorUpgrade
 {
 	Other                 = 0x01,
@@ -88,5 +93,4 @@ public enum ProcessorUpgrade
 	SocketLGA1851         = 0x55,
 	SocketBGA2114         = 0x56,
 	SocketBGA2833         = 0x57,
-
 }

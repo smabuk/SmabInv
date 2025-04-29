@@ -1,7 +1,15 @@
-﻿using Smab.SmBiosInfo.Enums;
+﻿namespace Smab.SmBiosInfo.Structures;
 
-namespace Smab.SmBiosInfo.Structures;
-public record Type007(byte[] Data, List<string> Strings) : SmBiosTable(Data, [.. Strings])
+/// <summary>
+/// Represents the SMBIOS Type 7 structure, which provides information about a system's cache configuration and
+/// characteristics.
+/// </summary>
+/// <remarks>This record encapsulates details about the cache, including its configuration, size, speed, and
+/// supported types. It extends the <see cref="SmBiosTable"/> class to provide a strongly-typed representation of the
+/// cache information.</remarks>
+/// <param name="Data"></param>
+/// <param name="Strings"></param>
+public sealed record Type007(byte[] Data, List<string> Strings) : SmBiosTable(Data, [.. Strings])
 {
 	public Type007(SmBiosTable table) : this(table.Data, [.. table.Strings]) { }
 

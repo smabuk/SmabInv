@@ -1,5 +1,13 @@
 ﻿namespace Smab.SmBiosInfo.Enums;
 
+/// <summary>
+/// Represents the width of a hardware slot or bus, typically used to describe data transfer or physical slot
+/// configurations.
+/// </summary>
+/// <remarks>This enumeration provides a set of predefined values to describe the width of a slot or bus in terms
+/// of data bits or  physical lane configurations. The values include both traditional bit widths (e.g., 8-bit, 16-bit)
+/// and modern lane-based  configurations (e.g., x1, x4, x16). Use this enumeration to standardize slot width
+/// descriptions in hardware-related contexts.</remarks>
 public enum SlotWidth
 {
 	Other     = 0x01,

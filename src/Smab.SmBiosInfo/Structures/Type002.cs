@@ -1,7 +1,15 @@
-﻿using Smab.SmBiosInfo.Enums;
+﻿namespace Smab.SmBiosInfo.Structures;
 
-namespace Smab.SmBiosInfo.Structures;
-public record Type002(byte[] Data, List<string> Strings) : SmBiosTable(Data, [.. Strings])
+/// <summary>
+/// Represents the SMBIOS Type 2 structure, which provides information about the baseboard (or motherboard) of a system.
+/// </summary>
+/// <remarks>This record encapsulates details about the baseboard, including its manufacturer, product name,
+/// version, serial number,  asset tag, feature flags, location in the chassis, chassis handle, and board type. It
+/// extends the <see cref="SmBiosTable">  class to provide a structured representation of the SMBIOS Type 2
+/// data.</remarks>
+/// <param name="Data"></param>
+/// <param name="Strings"></param>
+public sealed record Type002(byte[] Data, List<string> Strings) : SmBiosTable(Data, [.. Strings])
 {
 	public Type002(SmBiosTable table) : this(table.Data, [.. table.Strings]) { }
 

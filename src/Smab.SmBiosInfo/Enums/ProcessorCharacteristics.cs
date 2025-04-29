@@ -1,5 +1,11 @@
 ﻿namespace Smab.SmBiosInfo.Enums;
 
+/// <summary>
+/// Represents the characteristics and capabilities of a processor.
+/// </summary>
+/// <remarks>This enumeration is decorated with the <see cref="FlagsAttribute"/>, allowing bitwise combination of
+/// its values. Use this enumeration to identify specific features or capabilities of a processor, such as support for
+/// 64-bit operations, multi-core architecture, or enhanced virtualization.</remarks>
 [Flags]
 public enum ProcessorCharacteristics
 {

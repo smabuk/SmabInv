@@ -1,5 +1,11 @@
 ﻿namespace Smab.SmBiosInfo.Enums;
 
+/// <summary>
+/// Represents the type of a hardware slot, such as PCI, AGP, or M.2, used for connecting components to a system.
+/// </summary>
+/// <remarks>This enumeration provides a comprehensive list of slot types, including legacy, current, and
+/// specialized slot types. It is commonly used to identify the physical or logical characteristics of a slot in
+/// hardware inventory systems, diagnostics tools, or configuration utilities.</remarks>
 public enum SlotType
 {
 	Other                       = 0x01,

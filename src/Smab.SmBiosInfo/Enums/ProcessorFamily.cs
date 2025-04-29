@@ -1,5 +1,12 @@
 ﻿namespace Smab.SmBiosInfo.Enums;
 
+/// <summary>
+/// Represents the family of processors, categorized by architecture, generation, or specific model.
+/// </summary>
+/// <remarks>This enumeration provides a comprehensive list of processor families, including Intel, AMD, ARM,
+/// PowerPC, and others. Each value corresponds to a specific processor family or model, identified by a unique
+/// hexadecimal code. Use this enumeration to identify or categorize processors in hardware-related applications or
+/// system diagnostics.</remarks>
 public enum ProcessorFamily
 {
     Other               = 0x01,

@@ -1,5 +1,14 @@
 ﻿namespace Smab.SmBiosInfo.Structures;
-public record Type000(byte[] Data, List<string> Strings) : SmBiosTable(Data, [.. Strings])
+
+/// <summary>
+/// Represents the platform firmware information as defined in the SMBIOS Type 0 structure.
+/// </summary>
+/// <remarks>This record provides details about the system's BIOS and firmware, including vendor information, 
+/// version, release date, and firmware release versions. It extends the <see cref="SmBiosTable"/>  class to parse and
+/// expose relevant data from the SMBIOS Type 0 structure.</remarks>
+/// <param name="Data"></param>
+/// <param name="Strings"></param>
+public sealed record Type000(byte[] Data, List<string> Strings) : SmBiosTable(Data, [.. Strings])
 {
 	public Type000(SmBiosTable table) : this(table.Data, [.. table.Strings]) { }
 

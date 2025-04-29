@@ -1,7 +1,14 @@
-﻿using Smab.SmBiosInfo.Enums;
+﻿namespace Smab.SmBiosInfo.Structures;
 
-namespace Smab.SmBiosInfo.Structures;
-public record Type004(byte[] Data, List<string> Strings) : SmBiosTable(Data, [.. Strings])
+/// <summary>
+/// Represents the SMBIOS Type 4 structure, which provides detailed information about a processor.
+/// </summary>
+/// <remarks>This record encapsulates data from the SMBIOS "Processor Information" table, including details such
+/// as the processor's type, family, manufacturer, speed, core count, thread count, and other characteristics. It
+/// provides properties to access these details in a structured and strongly-typed manner.</remarks>
+/// <param name="Data"></param>
+/// <param name="Strings"></param>
+public sealed record Type004(byte[] Data, List<string> Strings) : SmBiosTable(Data, [.. Strings])
 {
 	public Type004(SmBiosTable table) : this(table.Data, [.. table.Strings]) { }
 

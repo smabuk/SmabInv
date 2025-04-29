@@ -1,5 +1,11 @@
 ﻿namespace Smab.SmBiosInfo.Enums;
 
+/// <summary>
+/// Represents the type of chassis or enclosure for a computer system.
+/// </summary>
+/// <remarks>This enumeration provides a standardized set of chassis types, as defined by the SMBIOS (System
+/// Management BIOS) specification. It can be used to identify the physical form factor or enclosure type of a system,
+/// such as a desktop, laptop, server, or embedded device.</remarks>
 public enum ChassisType
 {
     Other               = 0x01,

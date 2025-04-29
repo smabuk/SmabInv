@@ -7,6 +7,13 @@ public static class SmBiosTableExtensions
 {
 	extension(SmBiosTable smBiosTable)
 	{
+		/// <summary>
+		/// Displays the contents of the current SMBIOS table in a formatted table output.
+		/// </summary>
+		/// <remarks>This method generates a table representation of the SMBIOS table data, with rows and columns 
+		/// tailored to the specific type of SMBIOS table being processed. The table is displayed in the console  using ANSI
+		/// formatting. If the table contains no rows, a fallback message with the table type and  description is displayed
+		/// instead.</remarks>
 		public void DumpAsTable()
 		{
 
@@ -114,7 +121,7 @@ public static class SmBiosTableExtensions
 						;
 					break;
 				case Type011 type011:
-					_ = table.AddRow("Count",    $"{type011.Count}");
+					_ = table.AddRow("Count", $"{type011.Count}");
 
 					foreach (string str in type011.Strings) {
 						_ = table.AddRow("", $"{str.CleanMarkup()}");

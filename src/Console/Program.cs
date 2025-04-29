@@ -13,8 +13,8 @@ Console.WriteLine();
 
 SmBiosInfo smBiosInfo = new();
 
-Console.WriteLine($"SMBIOS Version: {smBiosInfo.MajorVersion}.{smBiosInfo.MinorVersion}");
-Console.WriteLine($"SMBIOS Size: {smBiosInfo.Size}");
+Console.WriteLine($"SMBIOS Version: {smBiosInfo.Version}");
+Console.WriteLine($"SMBIOS Size:    {smBiosInfo.Size}");
 
 
 foreach (SmBiosTable smBiosTable in smBiosInfo.Tables.OrderBy(t => t.TableType)) {

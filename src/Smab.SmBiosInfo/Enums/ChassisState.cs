@@ -1,4 +1,11 @@
 ﻿namespace Smab.SmBiosInfo.Enums;
+
+/// <summary>
+/// Represents the operational state of a chassis, typically used in hardware monitoring or management systems.
+/// </summary>
+/// <remarks>The <see cref="ChassisState"/> enumeration provides a set of predefined states that describe the
+/// current condition of a chassis. These states can be used to assess the health or operational status of the chassis
+/// and take appropriate actions based on the reported state.</remarks>
 public enum ChassisState
 {
 	Other          = 0x01,
