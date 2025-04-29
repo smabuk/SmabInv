@@ -1,7 +1,8 @@
 ﻿Console.WriteLine($"SmabInv - Hardware Inventory");
 
 foreach (string table in Constants.Win32Tables) {
-	Dump.ToConsoleAsPlainText(table, ignoreBlankProperties: true, propertyWidth: 42);
+	//Dump.ToConsoleAsPlainText(table, ignoreBlankProperties: true, propertyWidth: 42);
+	Dump.ToConsoleAsTables(table);
 }
 
 

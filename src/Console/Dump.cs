@@ -1,4 +1,6 @@
-﻿namespace SmabInv;
+﻿using Spectre.Console;
+
+namespace SmabInv;
 internal static class Dump
 {
 	public static void ToConsoleAsPlainText(string table, bool ignoreBlankProperties = true, int propertyWidth = 42)
@@ -16,6 +18,31 @@ internal static class Dump
 					Console.WriteLine($"  {property?.Name.PadRight(propertyWidth)}: {stringValue}");
 				}
 			}
+		}
+	}
+
+	public static void ToConsoleAsTables(string tableName, bool ignoreBlankProperties = true)
+	{
+		AnsiConsole.WriteLine();
+		foreach (ManagementObject mgmt in new ManagementObjectSearcher($"SELECT * FROM {tableName}").Get().Cast<ManagementObject>()) {
+			Table table = new()
+			{
+				Title = new($"{tableName}:")
+			};
+			_ = table.AddColumns(["Property", "Value"]);
+
+			foreach (PropertyData? property in mgmt.Properties) {
+				if (Constants.PropertiesToIgnore.Contains(property.Name)) {
+					continue;
+				}
+
+				string? stringValue = property?.ToPropertyString();
+				if (ignoreBlankProperties && !string.IsNullOrWhiteSpace(stringValue)) {
+					_ = table.AddRow(new(property?.Name), stringValue.CleanMarkup());
+				}
+			}
+
+			AnsiConsole.Write(table);
 		}
 	}
 

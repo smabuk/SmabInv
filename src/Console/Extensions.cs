@@ -17,4 +17,16 @@ internal static partial class Extensions
 				: propertyData?.Value?.ToString() ?? "";
 		}
 	}
+
+	extension(string? s)
+	{
+		public string CleanMarkup()
+		{
+			if (string.IsNullOrWhiteSpace(s)) { return ""; };
+
+			return s
+				.Replace("[", "[[")
+				.Replace("]", "]]");
+		}
+	}
 }
