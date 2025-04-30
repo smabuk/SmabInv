@@ -33,5 +33,12 @@ public sealed record Type001(byte[] Data, List<string> Strings) : SmBiosTable(Da
 	public string     Family       => GetStringFromIndex(DMI_01_FamilySI);
 
 	private string GetUUID(int offset)
-		=> string.Join("-", Enumerable.Range(0, 16).Select(i => BYTEToHexString(offset + i)));
+	{
+		string p1 = DWORDToHexString(offset + 0);
+		string p2 = WORDToHexString(offset + 4);
+		string p3 = WORDToHexString(offset + 6);
+		string p4 = $"{BYTEToHexString(offset + 8)}{BYTEToHexString(offset + 9)}";
+		string p5 = $"{BYTEToHexString(offset + 10)}{BYTEToHexString(offset + 11)}{BYTEToHexString(offset + 12)}{BYTEToHexString(offset + 13)}{BYTEToHexString(offset + 14)}{BYTEToHexString(offset + 15)}";
+		return $"{p1}-{p2}-{p3}-{p4}-{p5}";
+	}
 }
